@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Configuration;
 public class ModelMapperConfig {
 
     // ** 총 정리 **
+    // ModelMapperConfig(클래스) > getMapper()(메서드) > modelMapper(객체)
+
     // => @Configuration으로 설정 클래스임을 정의하고,
     // getMapper()메서드를 통해 ModelMapper의 객체인 modelMapper를 return(반환)하여,
     // 외부에서 호출할 수 있도록 설정한 클래스.
@@ -35,7 +37,7 @@ public class ModelMapperConfig {
 
                     // 객체 필드 : 클래스의 속성이나 특징을 나타내는 변수 !
                     // 생성자 : 클래스의 인스턴스(객체)를 생성할 때 호출되는 특별한 메서드
-                    // (객체가 만들어질 때 필욯나 초기 설정을 수행하는 역할)
+                    // (객체가 만들어질 때 필요나 초기 설정을 수행하는 역할)
                         // - 생성자의 이름 = 클래스명
                         // - 생성자는 return(반환) 타입이 없기 때문에, void를 쓰지 않아도 됨.
                         // - 생성자는 여러개 정의 가능 ( 매개변수의 개수나 타입이 다르면 서로 다른 생성자로 인식 : 생성자 오버로딩
