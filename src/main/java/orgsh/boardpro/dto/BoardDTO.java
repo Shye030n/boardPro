@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.modelmapper.internal.bytebuddy.asm.MemberSubstitution;
 
 @Data
     // getter/setter, toString() 자동 생성
@@ -26,7 +27,7 @@ public class BoardDTO {
     private String content;
     @NotEmpty
     private String writer;
-    @Future
+
     private String postDate;
-    private int visitcount;
+    private int visitCount;
 }
