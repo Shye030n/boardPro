@@ -3,6 +3,8 @@ package orgsh.boardpro.vo;
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
+
+import java.time.LocalDate;
 /* VO(ValueObject)란? (폴더명 및 파일명)
 - DB에서 가져온 데이터나 사용자 입력을 표현하는 객체
 - Address(주소), Date(날짜), Point(좌표) 등 특정한 의미를 가진 데이터 구조.
@@ -30,7 +32,7 @@ public class BoardVO {
     private String content;
     @NotEmpty
     private String writer;
-    @Future
-    private String postDate;
+
+    private LocalDate postDate;
     private int visitcount;
 }

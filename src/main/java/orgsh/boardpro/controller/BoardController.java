@@ -1,12 +1,18 @@
 package orgsh.boardpro.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import orgsh.boardpro.dto.BoardDTO;
+import orgsh.boardpro.dto.PageRequestDTO;
 import orgsh.boardpro.service.BoardService;
 
 import java.util.List;
@@ -37,13 +43,46 @@ public class BoardController {
     }
     //("/register")
     @GetMapping("/register")
-    public void register(Model model) {
-
+    public void registerGet(){
     }
-    //("/modify")
 
-    //("/list")
+    @PostMapping("/register")
+    public String registerPost(@Valid BoardDTO boardDTO,
+                               BindingResult bindingResult,
+                               RedirectAttributes redirectAttributes) {
+
+        log.info("registerPost()"+boardDTO);
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("errors", bindingResult);
+            return "redirect:/board/register";
+        }
+        boardService.register(boardDTO);
+        return "redirect:/board/list";
+    }
 
     //("/read", "/modify")
+    @GetMapping({"/read","/modify"})
+    public void read(@RequestParam("bno") int bno, PageRequestDTO pageRequestDTO, Model model) {
+        log.info("read");
+        BoardDTO boardDTO=boardService.getOne(bno);
+        model.addAttribute("dto",boardDTO);
+    }
 
+    //("/modify")
+    @PostMapping("/modify")
+    public String modify(BoardDTO boardDTO, PageRequestDTO pageRequestDTO, RedirectAttributes redirectAttributes){
+        log.info("modify()"+boardDTO);
+        boardService.modify(boardDTO);
+        redirectAttributes.addAttribute("bno", boardDTO.getBno());
+        redirectAttributes.addFlashAttribute("pageRequestDTO", pageRequestDTO);
+        return "redirect:/board/read";
+    }
+    //("/remove")
+    @PostMapping("/remove")
+    public String remove(BoardDTO boardDTO, RedirectAttributes redirectAttributes) {
+        log.info("remove()");
+        boardService.remove(Math.toIntExact(boardDTO.getBno()));
+        return "redirect:/board/list";
+
+    }
 }

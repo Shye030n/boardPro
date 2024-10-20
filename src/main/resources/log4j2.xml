@@ -21,11 +21,11 @@
             **additivity="false"**는 부모 로거로 로그가 전파되지 않음을 의미-->
             <appender-ref ref="console" /> <!-- console Appender를 사용해 로그를 출력-->
         </logger>
-        <logger name="org.pgm" level="INFO" additivity="false">
+        <logger name="orgsh" level="INFO" additivity="false">
             <!-- 이름이 **com.example**인 로거에 대한 설정-->
             <appender-ref ref="console" />
         </logger>
-        <logger name="org.pgm.todopro.mapper" level="INFO" additivity="false">
+        <logger name="orgsh.boardpro.mapper" level="INFO" additivity="false">
             <!-- 이름이 **com.example**인 로거에 대한 설정-->
             <appender-ref ref="console" />
         </logger>

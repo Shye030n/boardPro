@@ -8,6 +8,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.modelmapper.internal.bytebuddy.asm.MemberSubstitution;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 @Data
     // getter/setter, toString() 자동 생성
 @AllArgsConstructor
@@ -28,6 +31,6 @@ public class BoardDTO {
     @NotEmpty
     private String writer;
 
-    private String postDate;
+    private LocalDate postDate;
     private int visitCount;
 }

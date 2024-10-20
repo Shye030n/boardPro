@@ -9,42 +9,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<%--<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-
-<body>
-<div class="container-fluid">
-    <div class="row">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>--%>
+<%--header부분--%>
 <%@include file="../includes/header.jsp"%>
 <%--검색 부분 test.html에서 복붙해서 수정함--%>
 <div class="row-content">
@@ -56,16 +21,12 @@
                 <input type="hidden" name="size" value="${pageRequestDTO.size}">
 
                 <div class="mb-3">
-                    <%--  A?B:C A가 true이면 B, false면 C  --%>
-                    <input type="checkbox" name="finished" ${pageRequestDTO.finished?"checked":""}>완료여부
-                </div>
-                <div class="mb-3">
                     <input type="checkbox" name="types" value="t" ${pageRequestDTO.checkType("t")?"checked":""}>제목
                     <input type="checkbox" name="types" value="w" ${pageRequestDTO.checkType("w")?"checked":""}>작성자
                     <%-- 제목에 체크하면 제목 검색, 작성자에 체크하면 작성자 검색--%>
                     <input type="text"  name="keyword" class="form-control" value="${pageRequestDTO.keyword}">
                 </div>
-                <div class="input-group mb-3 dueDateDiv">
+                <div class="input-group mb-3 postDateDiv">
                     <input type="date" name="from" class="form-control" value="${pageRequestDTO.from}">
                     <input type="date" name="to" class="form-control" value="${pageRequestDTO.to}">
                 </div>
@@ -103,7 +64,7 @@
                 <c:forEach items="${boardList}" var="dto">
                     <tr>
                         <th scope="row">${dto.bno}</th>
-                        <td><a href="/board/read?tno=${dto.bno}">${dto.title}</a></td>
+                        <td><a href="/board/read?bno=${dto.bno}">${dto.title}</a></td>
                         <td>${dto.writer}</td>
                         <td>${dto.postDate}</td>
                         <td>${dto.visitCount}</td>
@@ -165,15 +126,5 @@
         </div>
     </div>
 </div>
+<%--footer 부분--%>
 <%@include file="../includes/footer.jsp"%>
-<%-- <div class="row footer">
-     <div class="row fixed-bootom" style="z-index: -100">
-         <footer class="py-1 my-1">
-             <p class="text-center text-muted">Footer</p>
-         </footer>
-     </div>
- </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
-</html>--%>

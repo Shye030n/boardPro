@@ -30,10 +30,10 @@
                             <a class="nav-link active" aria-current="page" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/todo/list">List Page</a>
+                            <a class="nav-link" href="/board/list">List Page</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/todo/register">Register Page</a>
+                            <a class="nav-link" href="/board/register">Register Page</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" aria-disabled="true">Disabled</a>

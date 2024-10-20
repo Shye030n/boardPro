@@ -11,7 +11,7 @@
         <!--   mysql가서 우클릭 create schema해서 springdb 만들기    -->
         <property name="username" value="jsp01"/>
         <!--   내 connection 입력     -->
-        <property name="password" value="1234"/>
+        <property name="password" value="0820"/>
         <!--   내 connection  비밀번호 입력     -->
         <property name="dataSourceProperties">
             <props>

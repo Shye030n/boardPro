@@ -2,6 +2,8 @@ package orgsh.boardpro.service;
 
 import jakarta.validation.Valid;
 import orgsh.boardpro.dto.BoardDTO;
+import orgsh.boardpro.dto.PageRequestDTO;
+import orgsh.boardpro.dto.PageResponseDTO;
 
 import java.util.List;
 
@@ -12,6 +14,6 @@ public interface BoardService {
     void remove(int bno);
     void modify(BoardDTO boardDTO);
 
-    //pageResponseDTO<BoardDTO> getList(PageRequestDTO pageRequestDTO);
+    PageResponseDTO<BoardDTO> getList(PageRequestDTO pageRequestDTO);
 
 }
